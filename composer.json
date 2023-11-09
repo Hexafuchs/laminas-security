@@ -1,0 +1,36 @@
+{
+    "name": "hexafuchs/laminas-security",
+    "description": "Security tool to automatically analyse potential security issues of laminas and mezzio applications",
+    "type": "library",
+    "keywords": [
+        "laminas",
+        "mezzio",
+        "security"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yasu",
+            "email": "yasu@fuchslativ.de"
+        }
+    ],
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.1",
+        "laminas/laminas-cli": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hexafuchs\\LaminasSecurity\\": "src/"
+        }
+    },
+    "extra": {
+        "laminas": {
+            "component": "Hexafuchs\\LaminasSecurity",
+            "config-provider": "Hexafuchs\\LaminasSecurity\\ConfigProvider"
+        }
+    },
+    "suggest": {
+        "vimeo/psalm": "Required for the Taint Analysis"
+    }
+}

@@ -1,0 +1,10 @@
+# Exclude System files
+.DS_Store
+
+# Exclude dependencies
+composer.lock
+/vendor/
+
+# Exclude Editor-Configurations
+.idea/
+.vscode/
