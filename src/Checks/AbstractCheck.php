@@ -15,7 +15,7 @@ abstract class AbstractCheck
     /**
      * @var string[] $details
      */
-    private array $details;
+    private array $details = [];
 
     /**
      * Returns the name of the check that is displayed in the output.
