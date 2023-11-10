@@ -72,9 +72,24 @@ class ConfigProvider
     {
         return [
             'audits' => [
-                'ci'   => [],
-                'dev'  => [],
-                'prod' => []
+                'ci'   => [
+                    'code',
+                    'configuration',
+                    'dependencies',
+                    'filesystem'
+                ],
+                'dev'  => [
+                    'code',
+                    'dependencies',
+                    'filesystem'
+                ],
+                'prod' => [
+                    'configuration',
+                    'dependencies',
+                    'environment',
+                    'filesystem',
+                    'webserver'
+                ]
             ],
 
             'checks' => []
