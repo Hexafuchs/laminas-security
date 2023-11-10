@@ -58,6 +58,7 @@ class ConfigProvider
 
                 // Services
                 \Hexafuchs\LaminasSecurity\Services\CheckLoader::class           => \Hexafuchs\LaminasSecurity\Services\CheckLoaderFactory::class,
+                \Hexafuchs\LaminasSecurity\Services\ShellExecutor::class         => \Hexafuchs\LaminasSecurity\Services\ShellExecutorFactory::class
             ]
         ];
     }
