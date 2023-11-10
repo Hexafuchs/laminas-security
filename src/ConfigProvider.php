@@ -5,6 +5,16 @@ namespace Hexafuchs\LaminasSecurity;
 
 class ConfigProvider
 {
+    /**
+     * Key to access the laminas-security configuration if the check has access to the application-config
+     */
+    public const LAMINAS_SECURITY_CONFIG = 'laminas-security';
+
+    /**
+     * Returns the default configuration of laminas-security
+     *
+     * @return array
+     */
     public function __invoke(): array
     {
         if (!$this->isExecutedInCli()) {
@@ -12,9 +22,9 @@ class ConfigProvider
         }
 
         return [
-            'laminas-cli'      => $this->getCliConfig(),
-            'laminas-security' => $this->getScannerConfig(),
-            'dependencies'     => $this->getDependencyConfig()
+            'laminas-cli'                 => $this->getCliConfig(),
+            'dependencies'                => $this->getDependencyConfig(),
+            self::LAMINAS_SECURITY_CONFIG => $this->getScannerConfig()
         ];
     }
 

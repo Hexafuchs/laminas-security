@@ -13,9 +13,9 @@ class Module
         }
 
         return [
-            'laminas-cli'      => $configProvider->getCliConfig(),
-            'laminas-security' => $configProvider->getScannerConfig(),
-            'service_manager'  => $configProvider->getDependencyConfig()
+            'laminas-cli'                           => $configProvider->getCliConfig(),
+            'service_manager'                       => $configProvider->getDependencyConfig(),
+            ConfigProvider::LAMINAS_SECURITY_CONFIG => $configProvider->getScannerConfig()
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace Hexafuchs\LaminasSecurity\Checks\Environment;
 
 use AssertionError;
+use Hexafuchs\LaminasSecurity\ConfigProvider;
 use Laminas\Http\Client;
 use Laminas\Http\Request;
 use Throwable;
@@ -53,13 +54,13 @@ class InsecurePasswordsCheck extends AbstractEnvironmentCheck
     {
         $this->client               = new Client();
         $this->config               = $config;
-        $this->secretParamsRegex    = $config[self::LAMINAS_SECURITY_CONFIGURATION_KEY]['secrets']['secret_params_regex'];
-        $this->checkAgainstHIBP     = $config[self::LAMINAS_SECURITY_CONFIGURATION_KEY]['secrets']['use_hibp_api'];
+        $this->secretParamsRegex    = $config[ConfigProvider::LAMINAS_SECURITY_CONFIG]['secrets']['secret_params_regex'];
+        $this->checkAgainstHIBP     = $config[ConfigProvider::LAMINAS_SECURITY_CONFIG]['secrets']['use_hibp_api'];
         $this->passwordRequirements = [
-            'length'    => $config[self::LAMINAS_SECURITY_CONFIGURATION_KEY]['secrets']['require_length'],
-            'uppercase' => $config[self::LAMINAS_SECURITY_CONFIGURATION_KEY]['secrets']['require_uppercase'],
-            'lowercase' => $config[self::LAMINAS_SECURITY_CONFIGURATION_KEY]['secrets']['require_lowercase'],
-            'numerical' => $config[self::LAMINAS_SECURITY_CONFIGURATION_KEY]['secrets']['require_numerical'],
+            'length'    => $config[ConfigProvider::LAMINAS_SECURITY_CONFIG]['secrets']['require_length'],
+            'uppercase' => $config[ConfigProvider::LAMINAS_SECURITY_CONFIG]['secrets']['require_uppercase'],
+            'lowercase' => $config[ConfigProvider::LAMINAS_SECURITY_CONFIG]['secrets']['require_lowercase'],
+            'numerical' => $config[ConfigProvider::LAMINAS_SECURITY_CONFIG]['secrets']['require_numerical'],
         ];
     }
 
