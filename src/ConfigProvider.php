@@ -58,7 +58,10 @@ class ConfigProvider
 
                 // Services
                 \Hexafuchs\LaminasSecurity\Services\CheckLoader::class           => \Hexafuchs\LaminasSecurity\Services\CheckLoaderFactory::class,
-                \Hexafuchs\LaminasSecurity\Services\ShellExecutor::class         => \Hexafuchs\LaminasSecurity\Services\ShellExecutorFactory::class
+                \Hexafuchs\LaminasSecurity\Services\ShellExecutor::class         => \Hexafuchs\LaminasSecurity\Services\ShellExecutorFactory::class,
+
+                // Checks
+                \Hexafuchs\LaminasSecurity\Checks\Code\TaintAnalysisCheck::class => \Hexafuchs\LaminasSecurity\Checks\ShellExecutorCheckFactory::class
             ]
         ];
     }
@@ -92,7 +95,10 @@ class ConfigProvider
                 ]
             ],
 
-            'checks' => []
+            'checks' => [
+                // Code
+                \Hexafuchs\LaminasSecurity\Checks\Code\TaintAnalysisCheck::class
+            ]
         ];
     }
 }
