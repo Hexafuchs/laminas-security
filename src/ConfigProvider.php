@@ -69,6 +69,7 @@ class ConfigProvider
                 \Hexafuchs\LaminasSecurity\Checks\Dependencies\VulnerableFrontendDependenciesCheck::class => \Hexafuchs\LaminasSecurity\Checks\ShellExecutorCheckFactory::class,
                 \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePhpConfigCheck::class               => \Hexafuchs\LaminasSecurity\Checks\DefaultCheckFactory::class,
                 \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePasswordsCheck::class               => \Hexafuchs\LaminasSecurity\Checks\ConfigCheckFactory::class,
+                \Hexafuchs\LaminasSecurity\Checks\Filesystem\FilePermissionCheck::class                   => \Hexafuchs\LaminasSecurity\Checks\DefaultCheckFactory::class,
             ]
         ];
     }
@@ -118,6 +119,9 @@ class ConfigProvider
                 // Environment
                 \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePasswordsCheck::class,
                 \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePhpConfigCheck::class,
+
+                // Filesystem
+                \Hexafuchs\LaminasSecurity\Checks\Filesystem\FilePermissionCheck::class,
             ],
 
             'secrets' => [
