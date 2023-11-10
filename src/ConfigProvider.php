@@ -53,15 +53,16 @@ class ConfigProvider
         return [
             'factories' => [
                 // Commands
-                \Hexafuchs\LaminasSecurity\Commands\SecurityAuditCommand::class  => \Hexafuchs\LaminasSecurity\Commands\SecurityCommandFactory::class,
-                \Hexafuchs\LaminasSecurity\Commands\SecurityReportCommand::class => \Hexafuchs\LaminasSecurity\Commands\SecurityCommandFactory::class,
+                \Hexafuchs\LaminasSecurity\Commands\SecurityAuditCommand::class           => \Hexafuchs\LaminasSecurity\Commands\SecurityCommandFactory::class,
+                \Hexafuchs\LaminasSecurity\Commands\SecurityReportCommand::class          => \Hexafuchs\LaminasSecurity\Commands\SecurityCommandFactory::class,
 
                 // Services
-                \Hexafuchs\LaminasSecurity\Services\CheckLoader::class           => \Hexafuchs\LaminasSecurity\Services\CheckLoaderFactory::class,
-                \Hexafuchs\LaminasSecurity\Services\ShellExecutor::class         => \Hexafuchs\LaminasSecurity\Services\ShellExecutorFactory::class,
+                \Hexafuchs\LaminasSecurity\Services\CheckLoader::class                    => \Hexafuchs\LaminasSecurity\Services\CheckLoaderFactory::class,
+                \Hexafuchs\LaminasSecurity\Services\ShellExecutor::class                  => \Hexafuchs\LaminasSecurity\Services\ShellExecutorFactory::class,
 
                 // Checks
-                \Hexafuchs\LaminasSecurity\Checks\Code\TaintAnalysisCheck::class => \Hexafuchs\LaminasSecurity\Checks\ShellExecutorCheckFactory::class
+                \Hexafuchs\LaminasSecurity\Checks\Code\TaintAnalysisCheck::class          => \Hexafuchs\LaminasSecurity\Checks\ShellExecutorCheckFactory::class,
+                \Hexafuchs\LaminasSecurity\Checks\Configuration\SecureCookiesCheck::class => \Hexafuchs\LaminasSecurity\Checks\ConfigCheckFactory::class
             ]
         ];
     }
@@ -97,7 +98,10 @@ class ConfigProvider
 
             'checks' => [
                 // Code
-                \Hexafuchs\LaminasSecurity\Checks\Code\TaintAnalysisCheck::class
+                \Hexafuchs\LaminasSecurity\Checks\Code\TaintAnalysisCheck::class,
+
+                // Configuration
+                \Hexafuchs\LaminasSecurity\Checks\Configuration\SecureCookiesCheck::class
             ]
         ];
     }
