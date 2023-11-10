@@ -8,6 +8,11 @@ use Throwable;
 abstract class AbstractCheck
 {
     /**
+     * Key to access the laminas-security configuration if the check has access to the application-config
+     */
+    protected const LAMINAS_SECURITY_CONFIGURATION_KEY = 'laminas-security';
+
+    /**
      * @var \Hexafuchs\LaminasSecurity\Enums\CheckState $state
      */
     private CheckState $state = CheckState::SKIPPED;

@@ -67,6 +67,8 @@ class ConfigProvider
                 \Hexafuchs\LaminasSecurity\Checks\Dependencies\StableDependenciesCheck::class             => \Hexafuchs\LaminasSecurity\Checks\ShellExecutorCheckFactory::class,
                 \Hexafuchs\LaminasSecurity\Checks\Dependencies\VulnerableBackendDependenciesCheck::class  => \Hexafuchs\LaminasSecurity\Checks\ShellExecutorCheckFactory::class,
                 \Hexafuchs\LaminasSecurity\Checks\Dependencies\VulnerableFrontendDependenciesCheck::class => \Hexafuchs\LaminasSecurity\Checks\ShellExecutorCheckFactory::class,
+                \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePhpConfigCheck::class               => \Hexafuchs\LaminasSecurity\Checks\DefaultCheckFactory::class,
+                \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePasswordsCheck::class               => \Hexafuchs\LaminasSecurity\Checks\ConfigCheckFactory::class,
             ]
         ];
     }
@@ -112,6 +114,19 @@ class ConfigProvider
                 \Hexafuchs\LaminasSecurity\Checks\Dependencies\StableDependenciesCheck::class,
                 \Hexafuchs\LaminasSecurity\Checks\Dependencies\VulnerableBackendDependenciesCheck::class,
                 \Hexafuchs\LaminasSecurity\Checks\Dependencies\VulnerableFrontendDependenciesCheck::class,
+
+                // Environment
+                \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePasswordsCheck::class,
+                \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePhpConfigCheck::class,
+            ],
+
+            'secrets' => [
+                'require_length'      => 16,
+                'require_uppercase'   => 1,
+                'require_lowercase'   => 1,
+                'require_numerical'   => 1,
+                'secret_params_regex' => '/^[A-Za-z_]*(pass(word)?|secret)$/',
+                'use_hibp_api'        => false
             ]
         ];
     }
