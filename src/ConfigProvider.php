@@ -80,6 +80,8 @@ class ConfigProvider
                 \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePhpConfigCheck::class               => \Hexafuchs\LaminasSecurity\Checks\DefaultCheckFactory::class,
                 \Hexafuchs\LaminasSecurity\Checks\Environment\InsecurePasswordsCheck::class               => \Hexafuchs\LaminasSecurity\Checks\ConfigCheckFactory::class,
                 \Hexafuchs\LaminasSecurity\Checks\Filesystem\FilePermissionCheck::class                   => \Hexafuchs\LaminasSecurity\Checks\DefaultCheckFactory::class,
+                \Hexafuchs\LaminasSecurity\Checks\Webserver\ForbiddenFileAccessCheck::class               => \Hexafuchs\LaminasSecurity\Checks\BaseUrlAwareCheckFactory::class,
+                \Hexafuchs\LaminasSecurity\Checks\Webserver\SecureHeadersCheck::class                     => \Hexafuchs\LaminasSecurity\Checks\BaseUrlAwareCheckFactory::class
             ]
         ];
     }
@@ -92,6 +94,10 @@ class ConfigProvider
     public function getScannerConfig(): array
     {
         return [
+            'app' => [
+                'base_url' => null
+            ],
+
             'audits' => [
                 'ci'   => [
                     'code',
@@ -132,6 +138,10 @@ class ConfigProvider
 
                 // Filesystem
                 \Hexafuchs\LaminasSecurity\Checks\Filesystem\FilePermissionCheck::class,
+
+                // Webserver
+                \Hexafuchs\LaminasSecurity\Checks\Webserver\ForbiddenFileAccessCheck::class,
+                \Hexafuchs\LaminasSecurity\Checks\Webserver\SecureHeadersCheck::class
             ],
 
             'secrets' => [
