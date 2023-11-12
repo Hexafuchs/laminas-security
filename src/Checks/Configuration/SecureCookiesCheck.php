@@ -39,7 +39,7 @@ class SecureCookiesCheck extends AbstractConfigurationCheck
         }
 
         if (($sessionConfig['cookie_secure'] ?? false) !== true) {
-            if (str_starts_with($this->config['laminas-security']['app']['url'] ?? '', 'https://')) {
+            if (str_starts_with($this->config['laminas-security']['app']['base_url'] ?? '', 'https://')) {
                 $this->fail([
                     '- Session cookie should be <fail>Secure</fail> if your app is using <success>https</success>',
                     '  you can enable this by setting <mark>config["session_config"]["cookie_secure"]</mark> to <success>true</success>'
