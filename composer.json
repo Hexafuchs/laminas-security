@@ -1,7 +1,7 @@
 {
     "name": "hexafuchs/laminas-security",
     "description": "Security tool to automatically analyse potential security issues of laminas and mezzio applications",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "type": "library",
     "keywords": [
         "laminas",
