@@ -43,7 +43,7 @@ class InsecurePasswordsCheck extends AbstractEnvironmentCheck
     /**
      * @var array $secrets
      */
-    protected array $secrets;
+    protected array $secrets = [];
 
     /**
      * @var array $passwordRequirements
